@@ -58,6 +58,7 @@ bool completeItem(int itemIndex, int score, backlog &log) {
 
     //delete from the unfinished list
     log.unfinished.erase(log.unfinished.begin()+(itemIndex-1));
+    cleanUpList(log, itemIndex);
 
     //edit the newly finished item to have a score and change completion status to true;
     log.finished[log.numFin].score = score;
@@ -91,8 +92,14 @@ bool addCompleted(std::string name, std::string media, int score, backlog &log) 
 void displayBacklog(backlog &log) {
 
     //prints out all the items on the backlog, name and media type
-    for (int i = 0; i < log.unfinished.size(); i++) {
-        cout << (i+1) << ". " << log.unfinished[i].name << "\t" << log.unfinished[i].media << "\t" << endl;
+
+    if (log.numUnfin > 0) {
+        for (int i = 0; i < log.unfinished.size(); i++) {
+            cout << (i + 1) << ". " << log.unfinished[i].name << "\t" << log.unfinished[i].media << "\t" << endl;
+        }
+    }
+    else {
+        cout << "There is nothing on the backlog! Add something new." << endl;
     }
 }
 
