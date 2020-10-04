@@ -152,6 +152,10 @@ void cleanUpList(backlog &log, int itemIndex) {
 
 }
 
+string getItemName(backlog &log, int index) {
+    return log.unfinished.at(index).name;
+}
+
 
 
 

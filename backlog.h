@@ -55,7 +55,8 @@ double calcPercentage(int completed, int uncompleted);
 //clean up any blank spaces in the list
 void cleanUpList(backlog &log, int itemIndex);
 
-
+//return the name of an item at the index in the backlog
+std::string getItemName(backlog &log, int index);
 
 
 
